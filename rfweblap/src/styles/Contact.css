@@ -1,11 +1,7 @@
-
-
-  .left{
-    margin-left: auto;
-    
-    margin-right: auto;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  
+.left {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}

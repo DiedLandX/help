@@ -2,7 +2,7 @@ import Margherita from "../assets/Pizza-logo.png";
 
 export const MenuList = [
   {
-    name: "margherita",
+    name: "Margherita",
     img: Margherita,
     price: 120,
   },

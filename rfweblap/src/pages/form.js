@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import "../styles/form.css"
-
+import "../styles/form.css";
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -10,12 +9,12 @@ const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
 
   // validate form errors being empty
-  Object.values(formErrors).forEach(val => {
+  Object.values(formErrors).forEach((val) => {
     val.length > 0 && (valid = false);
   });
 
   // validate the form was filled out
-  Object.values(rest).forEach(val => {
+  Object.values(rest).forEach((val) => {
     val === null && (valid = false);
   });
 
@@ -28,19 +27,21 @@ class App extends Component {
 
     this.state = {
       firstName: null,
+      userName: null,
       lastName: null,
       email: null,
       password: null,
       formErrors: {
+        userName: "",
         firstName: "",
         lastName: "",
         email: "",
-        password: ""
-      }
+        password: "",
+      },
     };
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     if (formValid(this.state)) {
@@ -56,7 +57,7 @@ class App extends Component {
     }
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
     let formErrors = { ...this.state.formErrors };
@@ -152,7 +153,44 @@ class App extends Component {
             </div>
             <div className="createAccount">
               <button type="submit">Regisztráció</button>
-              
+            </div>
+          </form>
+        </div>
+        <div className="form-wrapper">
+          <h1>Bejelentkezés</h1>
+          <form onSubmit={this.handleSubmit} noValidate>
+            <div className="userName">
+              <label htmlFor="userName">Felhasználónév:</label>
+              <input
+                className={formErrors.userName.length > 0 ? "error" : null}
+                placeholder="felhasznalónév"
+                type="text"
+                name="userName"
+                noValidate
+                onChange={this.handleChange}
+              />
+              <br />
+              {formErrors.userName.length > 0 && (
+                <span className="errorMessage">{formErrors.userName}</span>
+              )}
+            </div>
+
+            <div className="password">
+              <label htmlFor="password">Jelszó:</label>
+              <input
+                className={formErrors.password.length > 0 ? "error" : null}
+                placeholder="jelszó"
+                type="password"
+                name="password"
+                noValidate
+                onChange={this.handleChange}
+              />
+              {formErrors.password.length > 0 && (
+                <span className="errorMessage">{formErrors.password}</span>
+              )}
+            </div>
+            <div className="createAccount">
+              <button type="submit">Bejelentkezés</button>
             </div>
           </form>
         </div>

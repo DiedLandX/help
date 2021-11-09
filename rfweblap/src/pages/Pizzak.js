@@ -5,7 +5,6 @@ import "../styles/Pizzak.css";
 function Pizzak() {
   return (
     <div className="menu">
-      <h1 className="menuTitle">Pizzáink:</h1>
       <div className="menuList">
         {MenuList.map((menuItem, key) => {
           return (

@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 function MenuItem({ image, name, price }) {
   return (
     <div className="menuItem">
-      <img className="pizzaImg" width="300" height="200" src={kep} />
+      <div className="pizzaImg"></div>
       <h1>{name}</h1>
       <div className="pizzaDetails">
         <p>{price}-Ft</p>
